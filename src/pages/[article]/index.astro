@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { checkAuth } from "@/utils/auth";
-// import { validDateRoute } from "@/utils/dateRoutes";
 
 const { article } = Astro.params;
 
@@ -10,15 +9,8 @@ const isAuthenticated = checkAuth(Astro.cookies.get("auth"));
 
 if (!isAuthenticated) {
 	const currentPath = Astro.url.pathname;
-	return Astro.redirect(`/blog/login?path=${currentPath}`);
+	return Astro.redirect(`/login?path=${currentPath}`);
 }
-
-// Validate route
-// const isValid = validDateRoute(year);
-
-// if (!isValid || !year) {
-// 	return Astro.redirect("/blog/404");
-// }
 ---
 
 <Layout title={"Authenticated Route"}
