@@ -39,7 +39,7 @@ if (Astro.request.method === "POST") {
 				secure: true,
 			});
 
-			return Astro.redirect(`${referrer}` || "/blog");
+			return Astro.redirect(`/blog${referrer}` || "/blog");
 		} else {
 			Astro.cookies.delete("auth");
 		}
@@ -54,7 +54,6 @@ if (Astro.request.method === "POST") {
 <Layout title="Log In">
 	<h1>Please Log In</h1>
 	<p>You need to log in to view these pages.</p>
-	<p>{referrer}</p>
 
 	<form method="post">
 		<label for="login_password">Password</label>
